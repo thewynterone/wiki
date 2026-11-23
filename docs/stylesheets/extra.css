@@ -53,6 +53,98 @@
   color: #ffffff;
 }
 
+/* Botones centrados únicamente en la página de Inicio */
+.md-typeset .cta-buttons.center,
+.md-typeset img.center ~ .admonition.tip + p:has(> .md-button) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.4rem 0;
+}
+
+.md-typeset .cta-buttons.center .md-button {
+  margin: 0;
+}
+
+/* Íconos en encabezados de secciones (Reglas) */
+.md-typeset h2 .twemoji {
+  color: #FF5300;
+  vertical-align: -0.15em;
+  margin-right: 0.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 .twemoji {
+  color: #ff7a33;
+}
+
+/* Identificador naranja de cada regla */
+.rule-num {
+  display: inline-block;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.78em;
+  font-weight: 700;
+  color: #FF5300;
+  background: rgba(255, 83, 0, 0.12);
+  border: 1px solid rgba(255, 83, 0, 0.28);
+  border-radius: 4px;
+  padding: 0.05rem 0.38rem;
+  margin-right: 0.3rem;
+}
+
+[data-md-color-scheme="slate"] .rule-num {
+  color: #ff8c52;
+  background: rgba(255, 83, 0, 0.16);
+  border-color: rgba(255, 122, 51, 0.35);
+}
+
+/* Badges de niveles en la tabla de Sanciones */
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+[data-md-color-scheme="default"] .badge-green {
+  background: rgba(46, 125, 50, 0.14);
+  color: #2e7d32;
+}
+[data-md-color-scheme="default"] .badge-amber {
+  background: rgba(230, 138, 0, 0.16);
+  color: #b26a00;
+}
+[data-md-color-scheme="default"] .badge-red {
+  background: rgba(211, 47, 47, 0.14);
+  color: #c62828;
+}
+[data-md-color-scheme="default"] .badge-critical {
+  background: rgba(136, 14, 79, 0.15);
+  color: #880e4f;
+}
+
+[data-md-color-scheme="slate"] .badge-green {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+}
+[data-md-color-scheme="slate"] .badge-amber {
+  background: rgba(255, 171, 0, 0.2);
+  color: #ffd54f;
+}
+[data-md-color-scheme="slate"] .badge-red {
+  background: rgba(255, 82, 82, 0.2);
+  color: #ff8a80;
+}
+[data-md-color-scheme="slate"] .badge-critical {
+  background: rgba(244, 67, 54, 0.26);
+  color: #ff5252;
+  border: 1px solid rgba(255, 82, 82, 0.45);
+}
+
 /* Etiquetas de rangos (pixel art): se ven nítidas al escalarlas */
 .md-typeset img.rank-tag,
 .md-typeset img.rank-tag-lg {
