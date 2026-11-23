@@ -75,25 +75,6 @@
   color: #ffffff;
 }
 
-/* Botones Discord y Tienda centrados en Inicio */
+/* Botones centrados únicamente en la página de Inicio */
 .md-typeset .cta-buttons.center,
-.md-typeset img.center ~ .admonition.tip + p:has(> .md-button),
-.md-typeset .wf-ip-card ~ p:has(> .md-button) {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 1.4rem 0;
-  text-align: center;
-}
-.md-typeset .cta-buttons.center .md-button,
-.md-typeset .wf-ip-card ~ p:has(> .md-button) .md-button { margin: 0; }
-
-/* Íconos en encabezados de secciones (Reglas) */
-.md-typeset h2 .twemoji {
-  color: #FF5300;
-  vertical-align: -0.15em;
-  margin-right: 0.25rem;
-}
-[data-md-color-scheme="slate"] .md-typeset h2 .twem
+.md-typeset img.center ~ .admonition.tip + p:has
