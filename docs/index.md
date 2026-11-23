@@ -10,6 +10,7 @@ Bienvenido a la wiki oficial de **Wolfland Network**, un servidor de Minecraft *
 
 [:fontawesome-brands-discord: Unirse al Discord](https://discord.com/invite/jCmngqZRFV){ .md-button .md-button--primary }
 [:fontawesome-solid-store: Ir a la Tienda](https://wolfland.tebex.store/){ .md-button }
+{: .cta-buttons .center }
 
 ## Empieza por aquí
 
