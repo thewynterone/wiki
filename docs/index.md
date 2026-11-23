@@ -1,4 +1,4 @@
-![Wolfland Network](assets/logo-wolfland.png){ .center width="420" }
+![Wolfland Network](assets/logo-wolfland.png){ .center width="480" }
 
 # Bienvenido
 
@@ -35,163 +35,19 @@ Bienvenido a la wiki oficial de **Wolfland Network**, un servidor de Minecraft *
   </div>
 </div>
 
-<style>
-.wf-ip-card {
-  margin: 1.4rem 0 1.6rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 109, 0, 0.28);
-  background: linear-gradient(145deg, rgba(255, 109, 0, 0.08), rgba(255, 255, 255, 0.02));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-  overflow: hidden;
-}
-.wf-ip-header {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.1rem;
-  background: rgba(255, 109, 0, 0.12);
-  border-bottom: 1px solid rgba(255, 109, 0, 0.18);
-  font-weight: 700;
-  font-size: 0.92rem;
-  letter-spacing: 0.01em;
-}
-.wf-ip-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
-  flex-shrink: 0;
-}
-.wf-ip-badge {
-  margin-left: auto;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.18rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  opacity: 0.9;
-}
-.wf-ip-body {
-  display: flex;
-  flex-direction: column;
-}
-.wf-ip-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.85rem;
-  padding: 0.9rem 1.1rem;
-  flex-wrap: wrap;
-}
-.wf-ip-row + .wf-ip-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-.wf-ip-info {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-.wf-edition {
-  display: inline-block;
-  min-width: 68px;
-  text-align: center;
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.22rem 0.55rem;
-  border-radius: 6px;
-}
-.wf-edition-java {
-  background: rgba(255, 109, 0, 0.16);
-  color: #ff9e44;
-  border: 1px solid rgba(255, 109, 0, 0.32);
-}
-.wf-edition-bedrock {
-  background: rgba(56, 189, 248, 0.14);
-  color: #7dd3fc;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-}
-.wf-ip-code {
-  font-size: 0.9rem !important;
-  padding: 0.24rem 0.58rem !important;
-  border-radius: 6px !important;
-  background: rgba(0, 0, 0, 0.32) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: #f5f5f5 !important;
-}
-.wf-port-wrap {
-  font-size: 0.85rem;
-  opacity: 0.9;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-.wf-copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 109, 0, 0.55);
-  background: rgba(255, 109, 0, 0.14);
-  color: #ff9e44;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s ease;
-}
-.wf-copy-btn:hover {
-  background: #ff6d00;
-  border-color: #ff6d00;
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 109, 0, 0.3);
-}
-.wf-copy-btn.is-copied {
-  background: rgba(34, 197, 94, 0.2);
-  border-color: #22c55e;
-  color: #4ade80;
-  transform: none;
-  box-shadow: none;
-}
-@media (max-width: 560px) {
-  .wf-copy-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-</style>
-
 <script>
-window.copyServerIp = function(btn, text) {
+window.copyServerIp = (btn, text) => {
   const label = btn.querySelector('.wf-copy-text');
-  if (!btn.dataset.orig) btn.dataset.orig = label.textContent;
-  const finish = () => {
-    clearTimeout(btn._timer);
+  btn.dataset.orig ??= label.textContent;
+  const done = () => {
+    clearTimeout(btn._t);
     btn.classList.add('is-copied');
     label.textContent = '¡Copiado!';
-    btn._timer = setTimeout(() => {
-      btn.classList.remove('is-copied');
-      label.textContent = btn.dataset.orig;
-    }, 1800);
+    btn._t = setTimeout(() => { btn.classList.remove('is-copied'); label.textContent = btn.dataset.orig; }, 1800);
   };
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(finish);
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    finish();
-  }
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).then(done);
+  const ta = Object.assign(document.createElement('textarea'), { value: text });
+  document.body.append(ta); ta.select(); document.execCommand('copy'); ta.remove(); done();
 };
 </script>
 
