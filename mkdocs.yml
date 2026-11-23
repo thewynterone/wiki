@@ -1,0 +1,76 @@
+site_name: Wolfland Network
+copyright: "© 2026 Wolfland Network. Todos los derechos reservados. Las etiquetas de rangos y el contenido de esta wiki no pueden copiarse ni reutilizarse sin autorización."
+site_description: Wiki oficial de Wolfland Network, servidor de Minecraft Survival Custom
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  language: es
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/protect.js
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Cómo unirse: unirse.md
+  - Reglas: reglas.md
+  - Comandos: comandos.md
+  - Rangos:
+      - Todos los rangos: rangos.md
+      - Rangos Premium: rangos-premium.md
+      - Rangos Media: rangos-media.md
+  - Comunidad:
+      - Staff: staff.md
+      - Eventos: eventos.md
+      - Servicios de contenido: servicios.md
+  - Noticias: noticias.md
+  - Discord: https://discord.com/invite/jCmngqZRFV
+  - Tienda: https://wolfland.tebex.store/
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/invite/jCmngqZRFV
+      name: Discord de Wolfland Network
+    - icon: fontawesome/solid/store
+      link: https://wolfland.tebex.store/
+      name: Tienda de Wolfland Network
